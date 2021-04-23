@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import CreatePost from './Components/CreatePost'
+import PostList from './Components/PostList'
+import { v4 as uuidv4 } from 'uuid';
+import './Style/App.css'
 
 function App() {
+  const [posts, setPosts] = useState(seedPost)
+
+  function handleAddPost(post){
+    const newPost = {
+      id: uuidv4(),
+      text: post
+    }
+    setPosts([...posts, newPost])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className="app-container">
+   <h1 className="title">Fakebook</h1>
+   <div>
+     <CreatePost handleAddPost={handleAddPost}/>
+     <PostList posts={posts} />
+   </div>
+   </div>
   );
 }
+
+const seedPost = [
+  {
+      id: uuidv4(),
+      text: "This is an example post."
+  },
+  {
+      id: uuidv4(),
+      text: "Cool. Cool."
+  },
+  {
+      id: uuidv4(),
+      text: "Good luck!"
+  }
+]
 
 export default App;

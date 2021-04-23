@@ -1,0 +1,34 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container{
+  margin: 40px;
+}
+
+.create-post-container{
+  background-color: lightgrey;
+  padding: 15px;
+  width: 450px;
+  margin-top: 20px;
+}
+
+button{
+  position: relative;
+  left: 382px;
+  outline: none;
+  border: none;
+  background-color: #3b5998;
+  padding: 5px;
+  color: white;
+}
+
+.post{
+  border: 1px solid black;
+  width: 450px;
+  margin-top: 20px;
+  padding: 10px;
+}
